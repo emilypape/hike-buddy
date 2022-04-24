@@ -13,6 +13,18 @@ User.init ({
             primaryKey: true,
             autoIncrement: true
         },
+        first_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        profile_picture: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         username: {
             type: DataTypes.STRING,
             allowNull: false
@@ -25,7 +37,7 @@ User.init ({
                 isEmail: true
             }
         },
-        password: {
+        hashed_password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -43,7 +55,7 @@ User.init ({
             }
         },
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: false,
         underscored: true,
         modelName: 'user'
