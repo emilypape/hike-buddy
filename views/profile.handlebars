@@ -1,0 +1,29 @@
+<section>
+
+    <header>
+      <h1>{{user.first_name}} {{user.last_name}}</h1>
+    </header>
+
+    <div id="profile-picture">
+     <img src="/images/{{user.profile_picture}} alt={{user.first_name}} {{user.last_name}}'s profile picture">
+    </div>
+    <div id="preferences">
+    
+      <div class="profile-preferences" id="gender">Gender: {{user.preference.gender_identification}}</div>
+      <div class="profile-preferences"  id="gender-preference">Prefers hiking with: {{user.preference.gender_preference}}</div>
+      <div class="profile-preferences"  id="distance">Prefers hikes of a {{user.preference.hike_distance}} distance</div>
+      <div class="profile-preferences"  id="pace">Likes to hike at a {{user.preference.hike_pace}} pace</div>
+      <div  class="profile-preferences" id="pet-preference">Likes to hike with a pet: {{user.preference.hike_with_pet}}</div>
+      <div class="profile-preferences"  id="climate">Prefers {{user.preference.hike_climate}} climates</div>
+      <div class="profile-preferences"  id="snow">Will hike in snow: {{user.preference.hike_in_snow}}</div>
+      <div id="water-features">Likes to hike to water features: {{user.preference.water_feature}}</div>
+      <div class="profile-preferences"  id="peaks">Likes to summit peaks: {{user.preference.mountain_peak}}</div>
+      <div class="profile-preferences"  id="equipment">Carries special hiking equipment: {{user.preference.special_equipment}}</div>
+
+     
+    </div>
+    <div id="about">
+     About section
+    </div>
+
+</section> 
