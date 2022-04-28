@@ -41,7 +41,16 @@ module.exports = {
           recipient_id: 3,
           created_at: new Date(),
           updated_at: new Date()
-      }
+      },
+      {
+        id: 6,
+        message_content: 'I think we would be good hike buddies!',
+        sender_id: 2,
+        recipient_id: 3,
+        created_at: new Date(),
+        updated_at: new Date()
+    }
+
     ]);
    
   },
