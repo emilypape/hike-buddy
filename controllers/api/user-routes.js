@@ -69,17 +69,17 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         },
         attributes: [
-        { exclude: ['hashed_password']},
         'first_name',
         'last_name',
         'profile_picture',
         'username',
         'email'
         ],
+        attributes: { exclude: ['hashed_password']},
         include: [
         {
             model: Preferences,
-            attributes: ['gender_indentification', 'gender_preference', 'hike_distance', 'hike_pace', 'hike_with_pet', 'hike_climate', 'hike_in_snow', 'water_feature', 'mountain_peak', 'special_equipment']
+            attributes: ['gender_identification', 'gender_preference', 'hike_distance', 'hike_pace', 'hike_with_pet', 'hike_climate', 'hike_in_snow', 'water_feature', 'mountain_peak', 'special_equipment']
         }
         ],
     })
