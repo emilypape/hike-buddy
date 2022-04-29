@@ -1,0 +1,24 @@
+{
+ "development": {
+   "username": "root",
+   "password": "gitHub",
+   "database": "hike_buddy",
+   "host": "127.0.0.1",
+   "dialect": "mysql"
+ },
+ "test": {
+   "username": "root",
+   "password": "gitHub",
+   "database": "hike_buddy",
+   "host": "127.0.0.1",
+   "dialect": "mysql"
+ },
+ "production": {
+   "username": "root",
+   "password": "gitHub",
+   "database": "hike_buddy",
+   "host": "127.0.0.1",
+   "dialect": "mysql"
+ }
+}
+
