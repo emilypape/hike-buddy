@@ -34,9 +34,7 @@ router.get('/:user_id', async (req, res) => {
         }
     })
 
-    res.json(users)
-    console.log(messages);
-    console.log(users)
+    res.json(users);
 })
 
 // get one conversation between two users with a get route (use grouping?)
