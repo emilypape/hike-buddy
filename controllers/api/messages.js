@@ -57,10 +57,37 @@ router.get('/:recipient_id/:sender_id', (req, res) => {
 })
 
 // allow users to send a message to another user with a post route
-router.post
+router.post('/send', (req, res) => {
+    Message.create({
+        message_content: req.body.message_content,
+        sender_id: req.body.sender_id,
+        recipient_id: req.body.recipient_id,
+        order: [['createdAt', 'DESC']]
+    })
+    .then(dbMessageData => res.json(dbMessageData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
 
-// allow users to delete conversations with a delete route
-router.delete
+// allow users to delete a message with a delete route
+router.delete('/delete/:id', (req, res) => {
+    Message.destroy({
+        where: {
+            id: req.params.id
+        }
+    }) .then(dbMessageData => {
+        if(!dbMessageData) {
+            res.status(404).json({ message: 'Message not found with this id!' });
+            return;
+        }
+        res.json(dbMessageData);
+    }) .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
 
 
 
