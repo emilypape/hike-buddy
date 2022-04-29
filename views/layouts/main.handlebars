@@ -12,7 +12,20 @@
 </head>
 <body>
     <header>
-      <h1> Hello</h1>
+      <div id="page-title">
+      <h1>
+        <a href="/">Hike Buddy</a>
+      </h1>
+      </div>
+      {{#if loggedIn}}
+      <nav>
+        <a href="/profile">Profile</a>
+        <a href="/messages">Messages</a>
+        <button id="logout" class="btn-no-style">Logout</button>
+      {{else}}
+        <a href="/login">Login</a>
+      {{/if}}
+      </nav>
         
     </header>
     <main>
