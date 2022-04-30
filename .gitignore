@@ -1,5 +1,12 @@
 .env
 node_modules
 package-lock.json
+<<<<<<< HEAD
 .DS_store
 .env
+=======
+.DS_Store
+config.json
+
+
+>>>>>>> develop
