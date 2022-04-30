@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+const { Op } = require('sequelize');
 const { User, Message, Preferences } = require('../models');
+const { array } = require('yargs');
 
 // render profile.handlebars when navigating to /users/:id
 router.get('/users/:id', (req, res) => {
@@ -55,5 +57,79 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
 });
+
+router.get('/test/:id', async (req, res) => {
+    console.log(req.session);
+    if (!req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    let messages = await Message.findAll({
+        where: {
+            [Op.or]: [
+                { sender_id: req.params.id },
+                { recipient_id: req.params.id },
+            ]
+        }
+    });
+
+    messages = messages.reduce((acc, message) => {
+        acc.add(message.sender_id);
+        acc.add(message.recipient_id);
+        return acc;
+    }, new Set())
+
+    let users = await User.findAll({
+        where: {
+            [Op.or]: Array.from(messages).map((id) => ({id}))
+        }
+    })
+    
+    users = users.map((user) => {
+        return {
+            username: user.username,
+            profile_picture: user.profile_picture,
+            sender_id: user.id,
+            recipient_id: req.params.id
+        }
+    }) 
+
+    res.render('conversations', {
+        users,
+    });
+});
+
+router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
+    const recipientId = req.params.recipient_id;
+    const senderId = req.params.sender_id;
+    Message.findAll({
+        where: {
+           [Op.or]: [
+            {sender_id: senderId, recipient_id: recipientId},
+            { sender_id: recipientId, recipient_id: senderId }
+           ]
+        },
+        include: [{
+            model: User,
+        }],
+        order: [['createdAt', 'DESC']],
+    })
+    .then(dbMessageData => {
+       const users = dbMessageData.map((item) => {
+            return {
+                username: item.user.username,
+                profile_picture: item.user.profile_picture,
+                message_content: item.message_content
+            }
+        })
+        res.render('messages', {
+            users
+        });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
 
 module.exports = router;

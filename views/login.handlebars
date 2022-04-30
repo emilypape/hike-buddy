@@ -1,14 +1,16 @@
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
-<script src="/javascript/login.js"></script>
+
+	<div class="bg-white w-full lg:w-1/3 mx-auto rounded-lg lg:my-20 px-4 py-4 shadow-lg">
+		<input id="usernameInput" type='text' placeholder="Username"
+            class="w-full mb-3 px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
+		<input id="passwordInput" type='text' placeholder="Password"
+            class="w-full mb-3 px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
+		<button id="loginButton" class="text-white py-3 rounded-lg w-full font-bold text-xl tracking-wider"
+            style="background-color:#1977f2;">Log
+            In</button>
+		<hr class="">
+		<div class="flex justify-center my-6">
+			<button class="text-white h-12 rounded px-6 font-bold" style="background-color:#54b72b">Create
+                new Account </button>
+		</div>
+	</div>
+  <script src="/javascript/login.js"></script>
