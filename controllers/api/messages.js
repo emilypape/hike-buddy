@@ -48,8 +48,21 @@ router.get('/:recipient_id/:sender_id', (req, res) => {
             { sender_id: recipientId, recipient_id: senderId }
            ]
         },
+        include: [{
+            model: User,
+        }],
         order: [['createdAt', 'DESC']],
-    }).then(dbMessageData => res.json(dbMessageData))
+    })
+    .then(dbMessageData => {
+       const users = dbMessageData.map((item) => {
+            return {
+                username: item.user.username,
+                profile_picture: item.user.profile_picture,
+                message_content: item.message_content
+            }
+        })
+        res.json(users);
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
