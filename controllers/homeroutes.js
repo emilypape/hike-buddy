@@ -28,7 +28,8 @@ router.get('/users/:id', (req, res) => {
     })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'No user found :( Your perfect match may be hiding somewhere else!' })
+                // redirect user to 404 error page
+                res.redirect('/404error')
                 return;
             }
             // serialize the data
@@ -43,6 +44,11 @@ router.get('/users/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err)
         })
+})
+
+// render 404 error page 
+router.get('/404error', (req, res) => {
+    res.render('404error')
 })
 
 // render survey.handlebars
@@ -95,11 +101,13 @@ router.get('/conversation/:id', async (req, res) => {
         }
     }) 
 
+    // render conversations
     res.render('conversations', {
         users
     });
 });
 
+// GET conversations between recipient and sender
 router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
     const recipientId = req.params.recipient_id;
     const senderId = req.params.sender_id;
@@ -131,6 +139,11 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     })
+})
+
+// render homepage
+router.get('/homepage', (req, res) => {
+    res.render('homepage')
 })
 
 module.exports = router;
