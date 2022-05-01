@@ -5,11 +5,6 @@ const { User, Message, Preferences } = require('../models');
 const { array } = require('yargs');
 
 
-// homepage route
-router.get('/', (req, res) => {
-    res.render('homepage');
-})
-
 // render profile.handlebars when navigating to /users/:id
 router.get('/users/:id', (req, res) => {
     User.findOne({
