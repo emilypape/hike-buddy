@@ -6,6 +6,9 @@ const hbs = exphbs.create({});
 const routes = require('./controllers/');
 const sequelize = require('./config/connection');
 const path = require('path');
+const multer = require("multer");
+const upload = multer({dest: "uploads/"});
+
 const sess = {
     secret: 'Super secret cats',
     cookie: {},
@@ -26,6 +29,11 @@ app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.post("/upload_files", uploadFiles);
+function uploadFiles(req, res) {
+  console.log(req.body);
+}
 
 // turn on routes
 app.use(routes);
