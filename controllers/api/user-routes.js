@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
         hashed_password: req.body.hashed_password
     }).then(dbUserData => {
         req.session.save(() => {
-            req.session.id = dbUserData.id;
+            req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
             res.json(dbUserData);
@@ -26,17 +26,17 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            email: req.body.email
+            username: req.body.username
         }
     }).then(dbUserData => {
         if (!dbUserData) {
-            res.status(400).json({ message: 'There is no current user with this email address.' });
+            res.status(400).json({ message: 'There is no current user with this username.' });
             return;
         }
 
         //verify user
         const validPassword = dbUserData.checkPassword(req.body.hashed_password);
-        if (!validpassword) {
+        if (!validPassword) {
             res.status(400).json({ message: 'Invalid Password!' });
             return;
         }

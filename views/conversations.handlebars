@@ -1,0 +1,9 @@
+{{#each users as | user |}}
+<div class="flex py-2 items-center space-x-4">
+    <img class="w-10 h-10 rounded-full" src="{{user.profile_picture}}" alt="">
+    <div class="space-y-1 font-medium dark:text-white">
+        <div>{{user.username}}</div>
+        <a href="/conversation/{{user.recipient_id}}/{{user.sender_id}}" class="hover:cursor-pointer bg-cyan-50 p-1 rounded-full text-sm text-gray-500 dark:text-gray-400">View Conversation</a>
+    </div>
+</div>
+{{/each}}
