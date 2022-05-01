@@ -1,4 +1,5 @@
 <section>
+    {{!-- Profile Picture --}}
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
@@ -9,6 +10,7 @@
         </div>
     </div>
     <div>
+        {{!-- Photo placeholder and Change photo button --}}
         <label class="block text-sm font-medium text-gray-700"> Photo </label>
         <div class="mt-1 flex items-center">
             <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
@@ -22,6 +24,7 @@
         </div>
     </div>
     <div>
+        {{!-- Cover Photo upload form --}}
         <label class="block text-sm font-medium text-gray-700"> Cover photo </label>
         <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
             <div class="space-y-1 text-center">
@@ -43,7 +46,9 @@
             </div>
         </div>
     </div>
+    {{!-- End upload photo --}}
     </div>
+    {{!-- Save photo button --}}
     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
         <button type="submit"
             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
@@ -60,20 +65,133 @@
             <div class="md:col-span-1">
                 <div class="px-4 sm:px-0">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Hiking Preferences</h3>
-                    <p class="mt-1 text-sm text-gray-600">Use this section to show what kind of hiking preferences you have. This will help other hikers with similar preferences to find and connect with you.</p>
+                    <p class="mt-1 text-sm text-gray-600">Use this section to show what kind of hiking preferences you
+                        have. This will help other hikers with similar preferences to find and connect with you.</p>
                 </div>
             </div>
-            <div class="mt-5 md:mt-0 md:col-span-2">
-                <form action="#" method="POST">
-                    <div class="shadow overflow-hidden sm:rounded-md">
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <div class="grid grid-cols-6 gap-6">
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="gender_identification" class="block text-sm font-medium text-gray-700"> Gender Preference for Hiking Buddy</label>
-                                    <input type="text" name="gender_identification" id="gender_identification" autocomplete="given-name"
-                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                </div>
+        </div>
+    </div>
+    {{!-- <div class="mt-5 md:mt-0 md:col-span-2">
+        <form>
+            <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 bg-white sm:p-6">
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="gender_identification" class="block text-sm font-medium text-gray-700">
+                                Gender Preference for Hiking Buddy</label>
+                            <input type="text" name="gender_identification" id="gender_identification"
+                                autocomplete="given-name"
+                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div> --}}
+<div id="location">
+    <p>Where are you located?</p>
+    <button class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="find-me">Find My Location</button>
+    <p id="location-name">
+    </p>
+</div>
+<form id="survey">
+    <div>
+        <p>How do you identify?</p>
+            <select id="gender" name="gender">
+                <option disable hidden selected>Please choose one</option>
+                <option value="man">Man</option>
+                <option value="woman">Woman</option>
+                <option value="other">Other</option>
+            </select>
+    </div>
+    <div>
+        <p>Please choose who you would prefer to hike with</p>
+            <select  id="gender-preference" name="gender-preference">
+                <option disable hidden selected>Please choose one</option>
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+                <option value="no-preference">No Preference</option>
+            </select>
+    </div>
+    <div>
+        <p>How far do you like to hike?</p>
+            <select id="hike-distance" name="hike-distance">
+                <option disable hidden selected>Please choose one</option>
+                <option value="easy">1-2 miles. Nothing crazy.</option>
+                <option value="medium">Under 5 miles. Solid stroll.</option>
+                <option value="hard">5-10 miles. Light work</option>
+                <option value="very-hard">10+ miles. Getting after it.</option>
+            </select>
+    </div>
+    <div>
+        <p>At what pace do you prefer to hike?</p>
+            <select  id="hike-pace" name="hike-pace">
+                <option disable hidden selected>Please choose one</option>
+                <option value="slow">Slow</option>
+                <option value="moderate">Moderate</option>
+                <option value="fast">Fast</option>
+            </select>
+    </div>
+
+    <div>
+        <p>Do you hike with a pet? (Emotional support peacocks not applicable)</p>
+            <select id="with-pet" name="with-pet">
+                <option disable hidden selected>Please choose one</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+    </div>
+    <div >
+        <p>What is your favorite hiking climate?</p>
+            <select id="hike-climate" name="hike-climate">
+                <option disable hidden selected>Please choose one</option>
+                <option value="desert">Desert</option>
+                <option value="snow">Snow</option>
+                <option value="rainy">Rainy</option>
+                <option value="arid">Arid</option>
+
+            </select>
+    </div>
+    <div>
+        <p>Will you hike in snow?</p>
+            <select id="hike-snow" name="hike-snow">
+                <option disable hidden selected>Please choose one</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+    </div>
+    <div>
+        <p>Do you like hiking to a water feature</p>
+            <select id="water-feature" name="water-feature">
+                <option disable hidden selected>Please choose one</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+    </div>
+    <div>
+        <p>Do you enjoy bagging peaks? AKA hiking to the summit?</p>
+            <select id="peaks" name="peaks">
+                <option disable hidden selected>Please choose one</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+    </div>
+    <div>
+        <p>Do you hike with any special equipment?</p>
+            <select id="special-equipment" name="special-equipment">
+                <option disable hidden selected>Please choose one</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+    </div>
+    <div>
+        <p>Please write a little snippet about yourself and why you love to hike.</p>
+        <input type="text" placeholder="Text" id="biography" name="biography" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+    </div>
+    <button class="btn inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="submit-btn"type="submit">Submit</button>
+</form>
+
 
 </section>
 
-<script> src="/javascript/survey.js"</script>
+<script src="/javascript/survey.js"></script>
