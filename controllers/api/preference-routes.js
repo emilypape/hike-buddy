@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
         water_feature: req.body.water_feature,
         mountain_peak: req.body.mountain_peak,
         special_equipment: req.body.special_equipment,
-        biography: req.body.biography
+        // biography: req.body.biography
     })
         .then(dbPreferencesData => {
             req.session.save(() => {

@@ -53,14 +53,14 @@ const hikeSnow = document.querySelector('#hike-snow').value
 const waterFeature = document.querySelector('#water-feature').value
 const peaks = document.querySelector('#peaks').value
 const specialEquipment = document.querySelector('#special-equipment').value
-const location = document.querySelector('#location-input').value
+const location = document.querySelector('#location-name').value
 // Making sure all questions are answered
  if (gender && genderPreference && hikeDistance && hikePace && withPet && hikeClimate && waterFeature && peaks && specialEquipment) {
   const response = await fetch('/api/preferences', {
    method: 'POST',
    body: JSON.stringify({
     // user_id: req.session.user_id,
-    location: location,
+    location_name: location,
     gender_identification: gender,
     gender_preference: genderPreference,
     hike_distance: hikeDistance,

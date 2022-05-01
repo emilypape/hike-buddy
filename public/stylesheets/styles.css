@@ -73,3 +73,11 @@
  background-color: #1aa6ce;
  cursor: pointer
 }
+
+/* profile picture avatar formatting */
+.avatar {
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
