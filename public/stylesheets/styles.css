@@ -1,3 +1,18 @@
-* {
- margin: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#survey {
+
+ border: 0.1vw solid black;
+}
+
+.dropdown{
+ padding: 1vw;
+ border-radius: 1vw;
+}
+
+.dropdown:hover{
+ background-color: #dce5fa;
+ cursor: pointer;
 }

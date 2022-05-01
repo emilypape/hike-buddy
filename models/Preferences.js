@@ -11,13 +11,17 @@ Preferences.init(
             primaryKey: true,
             autoIncrement: true
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'users',
-                key: 'id'
-            }
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'users',
+        //         key: 'id'
+        //     }
+        // },
+        location_name: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         gender_identification: {
             type: DataTypes.STRING,
@@ -58,7 +62,12 @@ Preferences.init(
         special_equipment: {
             type: DataTypes.BOOLEAN,
             allowNull: false
+        },
+        biography: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
+        
     },
     {
         sequelize,
