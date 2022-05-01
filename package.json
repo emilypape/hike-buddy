@@ -6,11 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-<<<<<<< HEAD
-    "seed": "node seeders/index.js"
-=======
     "seed": "node seeds/index.js"
->>>>>>> feature/survey
   },
   "repository": {
     "type": "git",
