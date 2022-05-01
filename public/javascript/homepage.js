@@ -1,10 +1,20 @@
 const signup = document.querySelector('#signup-btn')
 const login = document.querySelector('#login-btn')
 
-function loginHandler(event) {
+async function loginHandler(event) {
 event.preventDefault()
 
-document.location.replace('/login')
+// document.location.replace('/login')
+const response = await fetch('/login', {
+    method: 'get',
+})
+window.location.href = response.url
+        // check response status
+        if(response.ok) {
+            console.log('success');
+        } else {
+            alert(response.statusText);
+        }
 }
 
 function signupHandler(event) {

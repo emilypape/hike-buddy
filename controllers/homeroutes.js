@@ -4,6 +4,10 @@ const { Op } = require('sequelize');
 const { User, Message, Preferences } = require('../models');
 const { array } = require('yargs');
 
+// renders homepage
+router.get('/', (req, res) => {
+    res.render('homepage')
+})
 
 // render profile.handlebars when navigating to /users/:id
 router.get('/users/:id', (req, res) => {
@@ -142,8 +146,6 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
 })
 
 // render homepage
-router.get('/homepage', (req, res) => {
-    res.render('homepage')
-})
+
 
 module.exports = router;
