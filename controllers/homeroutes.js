@@ -45,6 +45,7 @@ router.get('/users/:id', (req, res) => {
         })
 })
 
+// render 404 error page 
 router.get('/404error', (req, res) => {
     res.render('404error')
 })
@@ -63,6 +64,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+// test route
 router.get('/test/:id', async (req, res) => {
     console.log(req.session);
     if (!req.session.loggedIn) {
@@ -99,11 +101,13 @@ router.get('/test/:id', async (req, res) => {
         }
     }) 
 
+    // render conversations
     res.render('conversations', {
         users,
     });
 });
 
+// GET conversations between recipient and sender
 router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
     const recipientId = req.params.recipient_id;
     const senderId = req.params.sender_id;
@@ -135,6 +139,11 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     })
+})
+
+// render homepage
+router.get('/homepage', (req, res) => {
+    res.render('homepage')
 })
 
 module.exports = router;
