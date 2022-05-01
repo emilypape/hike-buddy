@@ -8,6 +8,7 @@ router.post('/', (req, res) => {
     console.log(req)
     Preferences.create({
         // user_id = req.session.user_id,
+        location_name: req.body.location_name,
         gender_identification: req.body.gender_identification,
         gender_preference: req.body.gender_preference,
         hike_distance: req.body.hike_distance,
@@ -43,6 +44,7 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             // 'user_id',
+            'location_name',
             'gender_identification',
             'gender_preference',
             'hike_distance',
