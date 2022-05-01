@@ -9,6 +9,11 @@ router.get('/', (req, res) => {
     res.render('homepage')
 })
 
+// renders signup portal
+router.get('/signup', (req,res) => {
+    res.render('signup')
+})
+
 // render profile.handlebars when navigating to /users/:id
 router.get('/users/:id', (req, res) => {
     User.findOne({
