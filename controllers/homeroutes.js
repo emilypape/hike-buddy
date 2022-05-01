@@ -27,7 +27,8 @@ router.get('/users/:id', (req, res) => {
     })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'No user found :( Your perfect match may be hiding somewhere else!' })
+                // redirect user to 404 error page
+                res.redirect('/404error')
                 return;
             }
             // serialize the data
@@ -42,6 +43,10 @@ router.get('/users/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err)
         })
+})
+
+router.get('/404error', (req, res) => {
+    res.render('404error')
 })
 
 // render survey.handlebars

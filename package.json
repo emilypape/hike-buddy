@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "seed": "node seeders/index.js"
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,10 +28,10 @@
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
-    "sequelize": "^6.19.0",
-    "tailwindcss": "^3.0.24"
+    "sequelize": "^6.19.0"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "tailwindcss": "^3.0.24"
   }
 }
