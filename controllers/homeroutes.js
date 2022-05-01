@@ -4,6 +4,7 @@ const { Op } = require('sequelize');
 const { User, Message, Preferences } = require('../models');
 const { array } = require('yargs');
 
+
 // render profile.handlebars when navigating to /users/:id
 router.get('/users/:id', (req, res) => {
     User.findOne({
@@ -45,6 +46,7 @@ router.get('/users/:id', (req, res) => {
         })
 })
 
+// render 404 error page 
 router.get('/404error', (req, res) => {
     res.render('404error')
 })
@@ -63,7 +65,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.get('/test/:id', async (req, res) => {
+router.get('/conversation/:id', async (req, res) => {
     console.log(req.session);
     if (!req.session.loggedIn) {
         res.redirect('/');
@@ -92,18 +94,20 @@ router.get('/test/:id', async (req, res) => {
     
     users = users.map((user) => {
         return {
-            username: user.username,
+            username: user.username.slice(0,8),
             profile_picture: user.profile_picture,
             sender_id: user.id,
             recipient_id: req.params.id
         }
     }) 
 
+    // render conversations
     res.render('conversations', {
-        users,
+        users
     });
 });
 
+// GET conversations between recipient and sender
 router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
     const recipientId = req.params.recipient_id;
     const senderId = req.params.sender_id;
@@ -135,6 +139,11 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     })
+})
+
+// render homepage
+router.get('/homepage', (req, res) => {
+    res.render('homepage')
 })
 
 module.exports = router;

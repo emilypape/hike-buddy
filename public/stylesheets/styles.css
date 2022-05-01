@@ -16,3 +16,60 @@
  background-color: #dce5fa;
  cursor: pointer;
 }
+
+#homepage {
+ background-image: url('../images/homepage-background.jpg');
+ background-size: cover;
+ display: flex;
+ justify-content: center;
+ background-attachment: fixed;
+ height: 100vh;
+}
+
+.header {
+ align-items: center;
+ justify-content: center;
+}
+
+.header h1 {
+ color: white;
+ font-size: 8vw;
+ text-shadow: -0.14vw 0.14vw 0 black,
+   0.14vw 0.14vw 0 black,
+  0.14vw -0.14vw 0 black,
+  -0.14vw -0.14vw 0 black;
+ margin-bottom: 4vh;
+}
+
+.header h3 {
+ color: white;
+ font-size: 3vw;
+ text-shadow: -0.09vw 0.09vw 0 black,
+ 0.09vw 0.09vw 0 black,
+0.09vw -0.09vw 0 black,
+-0.09vw -0.09vw 0 black;
+}
+
+#intro {
+ border-bottom: 0.2vw solid black;
+}
+
+.btn {
+ width: 35vw;
+ padding: 1vw;
+ border-radius: 1vw;
+ box-shadow: 0 0 1vw white;
+ border: 0.2vw solid white;
+ background-color: rgba(39, 95, 245, 0.4);
+ color: white;
+ font-size: 2vw;
+ text-shadow: -0.05vw 0.05vw 0 black,
+   0.05vw 0.05vw 0 black,
+  0.05vw -0.05vw 0 black,
+  -0.05vw -0.05vw 0 black;
+}
+
+.btn:hover {
+ background-color: #1aa6ce;
+ cursor: pointer
+}
