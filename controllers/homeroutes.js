@@ -4,6 +4,12 @@ const { Op } = require('sequelize');
 const { User, Message, Preferences } = require('../models');
 const { array } = require('yargs');
 
+
+// homepage route
+router.get('/', (req, res) => {
+    res.render('homepage');
+})
+
 // render profile.handlebars when navigating to /users/:id
 router.get('/users/:id', (req, res) => {
     User.findOne({
@@ -58,7 +64,7 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.get('/test/:id', async (req, res) => {
+router.get('/conversation/:id', async (req, res) => {
     console.log(req.session);
     if (!req.session.loggedIn) {
         res.redirect('/');
@@ -87,7 +93,7 @@ router.get('/test/:id', async (req, res) => {
     
     users = users.map((user) => {
         return {
-            username: user.username,
+            username: user.username.slice(0,8),
             profile_picture: user.profile_picture,
             sender_id: user.id,
             recipient_id: req.params.id
@@ -95,7 +101,7 @@ router.get('/test/:id', async (req, res) => {
     }) 
 
     res.render('conversations', {
-        users,
+        users
     });
 });
 
