@@ -42,12 +42,16 @@ event.preventDefault()
 
    for(let i = 0; i < data.length; i++) {
     let senderDM = document.createElement('div')
-    senderDM.classList.add('DM');
+    senderDM.classList.add('DM', 'px-4', 'py-2', 'bg-blue-500', 'text-white', 'text-sm', 'font-medium', 'rounded-full');
     senderDM.textContent = data[i].message_content;
 
     senderMessage.appendChild(senderDM)
    }
 
+}
+
+async function postMessage () {
+    const response = fetch('http://localhost:3009/api/messages/send')
 }
 
 
