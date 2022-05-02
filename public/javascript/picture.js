@@ -13,7 +13,8 @@ function submitForm(e) {
     // }
     fetch("/upload_files", {
         method: 'POST',
-        body: formData,
+        body: JSON.stringify(
+            profile_picture),
         headers: {
             "Content-Type": "multipart/form-data"
           }

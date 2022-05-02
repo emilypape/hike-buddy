@@ -77,7 +77,7 @@ router.get('/survey', async (req, res) => {
 // login route
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect(`/users/${req.session.user_id}`);
         return;
     }
     res.render('login');
