@@ -16,6 +16,12 @@
  background-color: #dce5fa;
  cursor: pointer;
 }
+
+#biography {
+  color: black;
+  padding: 1vw;
+  height: 2vh;
+}
 /* survey.handlebars styles end */
 
 
