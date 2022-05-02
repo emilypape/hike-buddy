@@ -4,9 +4,9 @@ form.addEventListener("submit", submitForm);
 
 function submitForm(e) {
     e.preventDefault();
-    const name = document.getElementById("name");
-    const files = document.getElementById("files");
-    const formData = {}
+    // const name = document.getElementById("name");
+    // const files = document.getElementById("files");
+    // const formData = {}
     // formData.append("name", name.value);
     // for(let i =0; i < files.files.length; i++) {
     //         formData.append("files", files.files[i]);
