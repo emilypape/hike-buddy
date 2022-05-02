@@ -18,7 +18,7 @@
 }
 
 #homepage {
- background-image: url('../images/homepage-background.jpg');
+ background-image: url('../images/Hike-Buddy-HP.jpeg');
  background-size: cover;
  display: flex;
  justify-content: center;
@@ -32,35 +32,36 @@
 }
 
 .header h1 {
- color: white;
+ color: #2B0600;
  font-size: 8vw;
- text-shadow: -0.14vw 0.14vw 0 black,
-   0.14vw 0.14vw 0 black,
-  0.14vw -0.14vw 0 black,
-  -0.14vw -0.14vw 0 black;
+ text-shadow: -0.14vw 0.14vw 0 bisque,
+   0.14vw 0.14vw 0 bisque,
+  0.14vw -0.14vw 0 bisque,
+  -0.14vw -0.14vw 0 bisque;
  margin-bottom: 4vh;
 }
 
 .header h3 {
- color: white;
+ color: #2B0600;
  font-size: 3vw;
- text-shadow: -0.09vw 0.09vw 0 black,
- 0.09vw 0.09vw 0 black,
-0.09vw -0.09vw 0 black,
--0.09vw -0.09vw 0 black;
+ text-shadow: -0.05vw 0.05vw 0 bisque,
+ 0.05vw 0.05vw 0 bisque,
+0.05vw -0.05vw 0 bisque,
+-0.05vw -0.05vw 0 bisque;
 }
 
-#intro {
+/* #intro {
  border-bottom: 0.2vw solid black;
-}
+} */
 
 .btn {
  width: 35vw;
  padding: 1vw;
  border-radius: 1vw;
- box-shadow: 0 0 1vw white;
- border: 0.2vw solid white;
- background-color: rgba(39, 95, 245, 0.4);
+ box-shadow: 0 0 1vw bisque;
+ border: 0.2vw solid bisque;
+ background-color: #2B0600;
+ opacity: .70;
  color: white;
  font-size: 2vw;
  text-shadow: -0.05vw 0.05vw 0 black,

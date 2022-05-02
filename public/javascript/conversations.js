@@ -50,4 +50,6 @@ event.preventDefault()
 
 }
 
+
+
 fetchMessagesBtns.forEach(fetchMessageButton => fetchMessageButton.addEventListener('click', fetchMessages))
