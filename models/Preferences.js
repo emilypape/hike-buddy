@@ -11,14 +11,14 @@ Preferences.init(
             primaryKey: true,
             autoIncrement: true
         },
-        // user_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: 'users',
-        //         key: 'id'
-        //     }
-        // },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'users',
+                key: 'id'
+            }
+        },
         location_name: {
             type: DataTypes.STRING,
             allowNull: true

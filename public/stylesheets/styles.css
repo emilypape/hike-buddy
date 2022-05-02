@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Survey.handlebars styles start */
 #survey {
-
  border: 0.1vw solid black;
 }
 
@@ -17,6 +17,15 @@
  cursor: pointer;
 }
 
+#biography {
+  color: black;
+  padding: 1vw;
+  height: 2vh;
+}
+/* survey.handlebars styles end */
+
+
+/* homepage.handlebars styles start */
 #homepage {
  background-image: url('../images/Hike-Buddy-HP.jpeg');
  background-size: cover;
@@ -58,10 +67,9 @@
  width: 35vw;
  padding: 1vw;
  border-radius: 1vw;
- box-shadow: 0 0 1vw bisque;
- border: 0.2vw solid bisque;
- background-color: #2B0600;
- opacity: .70;
+ box-shadow: 0 0 1vw white;
+ border: 0.2vw solid white;
+ background-color: rgba(5, 166, 2, 0.4);
  color: white;
  font-size: 2vw;
  text-shadow: -0.05vw 0.05vw 0 black,
@@ -70,11 +78,68 @@
   -0.05vw -0.05vw 0 black;
 }
 
+#login-btn {
+  font-size: 2.4vw;
+}
+
 .btn:hover {
- background-color: #1aa6ce;
- cursor: pointer
+ background-color: rgba(5, 184, 1, 0.8);
+ cursor: pointer;
 }
 
 .textDecoration {
   text-decoration: none;
+}
+/* homepage.handlebars styles end */
+
+/* signup.handlebars styles start */
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4vw;
+}
+
+.input {
+  font-size: 3vw;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-name {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 0.5vw;
+  margin-left: 2vw;
+  border: 0.1vw solid black;
+  font-size: 3vw;
+  padding: 1.5vw;
+  color: black;
+}
+
+#signup-btn {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5vw;
+  
+}
+/* signup.handlebars styles end */
+
+/* profile picture avatar formatting */
+.avatar {
+  vertical-align: middle;
+  width: 200px;
+  height: 250px;
+  border-radius: 50%;
+  border-color: black;
 }
