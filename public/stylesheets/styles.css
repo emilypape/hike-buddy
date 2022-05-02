@@ -73,3 +73,7 @@
  background-color: #1aa6ce;
  cursor: pointer
 }
+
+.textDecoration {
+  text-decoration: none;
+}
