@@ -61,17 +61,31 @@ router.get('/404error', (req, res) => {
 })
 
 // render survey.handlebars
-router.get('/survey', (req, res) => {
-    res.render('survey')
+router.get('/survey', async (req, res) => {
+    if (req.session.user_id) {
+        const user = await User.findByPk(req.session.user_id)
+        console.log(user);
+        const newUser = user.get({plain:true});
+        console.log(newUser);
+        res.render('survey', {picture: newUser.profile_picture})
+    }
+    else {
+        res.render('login')
+    }
 });
 
 // login route
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect(`/users/${req.session.user_id}`);
         return;
     }
     res.render('login');
+});
+
+//signup route
+router.get('/signup', (req, res) => {
+    res.render('signup')
 });
 
 router.get('/conversation/:id', async (req, res) => {
@@ -97,18 +111,18 @@ router.get('/conversation/:id', async (req, res) => {
 
     let users = await User.findAll({
         where: {
-            [Op.or]: Array.from(messages).map((id) => ({id}))
+            [Op.or]: Array.from(messages).map((id) => ({ id }))
         }
     })
-    
+
     users = users.map((user) => {
         return {
-            username: user.username.slice(0,8),
+            username: user.username.slice(0, 8),
             profile_picture: user.profile_picture,
             sender_id: user.id,
             recipient_id: req.params.id
         }
-    }) 
+    })
 
     // render conversations
     res.render('conversations', {
@@ -122,35 +136,32 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
     const senderId = req.params.sender_id;
     Message.findAll({
         where: {
-           [Op.or]: [
-            {sender_id: senderId, recipient_id: recipientId},
-            { sender_id: recipientId, recipient_id: senderId }
-           ]
+            [Op.or]: [
+                { sender_id: senderId, recipient_id: recipientId },
+                { sender_id: recipientId, recipient_id: senderId }
+            ]
         },
         include: [{
             model: User,
         }],
         order: [['createdAt', 'DESC']],
     })
-    .then(dbMessageData => {
-       const users = dbMessageData.map((item) => {
-            return {
-                username: item.user.username,
-                profile_picture: item.user.profile_picture,
-                message_content: item.message_content
-            }
+        .then(dbMessageData => {
+            const users = dbMessageData.map((item) => {
+                return {
+                    username: item.user.username,
+                    profile_picture: item.user.profile_picture,
+                    message_content: item.message_content
+                }
+            })
+            res.render('messages', {
+                users
+            });
         })
-        res.render('messages', {
-            users
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
 })
-
-// render homepage
-
 
 module.exports = router;

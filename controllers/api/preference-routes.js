@@ -7,7 +7,7 @@ const { Model, DataTypes } = require('sequelize');
 router.post('/', (req, res) => {
     console.log(req)
     Preferences.create({
-        // user_id = req.session.user_id,
+        user_id: req.session.user_id,
         location_name: req.body.location_name,
         gender_identification: req.body.gender_identification,
         gender_preference: req.body.gender_preference,

@@ -4,7 +4,7 @@ module.exports = {
      await queryInterface.bulkInsert('preferences', [
       {
         id: 1,
-        // user_id: 1,
+        user_id: 1,
         gender_identification: 'Female',
         gender_preference:'no preference',
         hike_distance:'long',
@@ -15,10 +15,11 @@ module.exports = {
         water_feature: true,
         mountain_peak: true,
         special_equipment: false,
+        biography: 'test',
       },
       {
         id: 2,
-        // user_id: 2,
+        user_id: 2,
         gender_identification: 'Female',
         gender_preference:'no preference',
         hike_distance:'moderate',
@@ -29,10 +30,11 @@ module.exports = {
         water_feature: false,
         mountain_peak: true,
         special_equipment: true,
+        biography: 'test',
       },
       {
         id: 3,
-        // user_id: 3,
+        user_id: 3,
         gender_identification: 'Male',
         gender_preference:'Male',
         hike_distance:'short',
@@ -43,10 +45,11 @@ module.exports = {
         water_feature: true,
         mountain_peak: false,
         special_equipment: false,
+        biography: 'test',
       },
       {
         id: 4,
-        // user_id: 4,
+        user_id: 4,
         gender_identification: 'Male',
         gender_preference:'female',
         hike_distance:'long',
@@ -57,6 +60,7 @@ module.exports = {
         water_feature: false,
         mountain_peak: true,
         special_equipment: true,
+        biography: 'test',
       }
     ]);
   },
