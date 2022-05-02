@@ -51,7 +51,7 @@ router.get('/:recipient_id/:sender_id', (req, res) => {
         include: [{
             model: User,
         }],
-        order: [['createdAt', 'DESC']],
+        order: [['createdAt', 'ASC']],
     })
     .then(dbMessageData => {
        const users = dbMessageData.map((item) => {
@@ -74,8 +74,7 @@ router.post('/send', (req, res) => {
     Message.create({
         message_content: req.body.message_content,
         sender_id: req.body.sender_id,
-        recipient_id: req.body.recipient_id,
-        order: [['createdAt', 'DESC']]
+        recipient_id: req.body.recipient_id
     })
     .then(dbMessageData => res.json(dbMessageData))
     .catch(err => {
