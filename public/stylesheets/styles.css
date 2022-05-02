@@ -69,7 +69,8 @@
  border-radius: 1vw;
  box-shadow: 0 0 1vw white;
  border: 0.2vw solid white;
- background-color: rgba(5, 166, 2, 0.4);
+ background-color: #373100;
+ opacity: .70;
  color: white;
  font-size: 2vw;
  text-shadow: -0.05vw 0.05vw 0 black,
@@ -83,7 +84,7 @@
 }
 
 .btn:hover {
- background-color: rgba(5, 184, 1, 0.8);
+ background-color: #6D6D24;
  cursor: pointer;
 }
 
