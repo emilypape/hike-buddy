@@ -58,6 +58,8 @@ router.get('/:recipient_id/:sender_id', (req, res) => {
           username: item.user.username,
           profile_picture: item.user.profile_picture,
           message_content: item.message_content,
+          sender_id: item.sender_id,
+          recipientId: item.recipient_id,
         };
       });
       res.json(users);

@@ -74,13 +74,14 @@ async function fetchMessages(event) {
       'DM',
       'px-4',
       'py-2',
-      'bg-blue-500',
       'text-white',
       'text-sm',
       'font-medium',
       'rounded-full',
       'mt-5',
+      'bg-blue-500',
     );
+
     senderDM.textContent = data[i].message_content;
 
     senderMessage.appendChild(senderDM);
