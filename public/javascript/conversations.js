@@ -69,7 +69,9 @@ async function fetchMessages(event) {
   }
 
   for (let i = 0; i < data.length; i++) {
+    // condition depending on data[i] for if is user or sender w/e
     let senderDM = document.createElement('div');
+<<<<<<< HEAD
     senderDM.classList.add(
       'DM',
       'px-4',
@@ -82,7 +84,16 @@ async function fetchMessages(event) {
       'bg-blue-500',
     );
 
+=======
+    senderDM.classList.add('w-2/4', 'DM', 'px-4', 'py-2', 'text-white', 'text-sm', 'font-medium', 'rounded-md', 'mt-5');
+>>>>>>> feature/messages
     senderDM.textContent = data[i].message_content;
+
+    if (data[i].senderId == userId) {
+      senderDM.classList.add('bg-green-500', 'ml-60');
+    } else {
+      senderDM.classList.add('bg-blue-500');
+    }
 
     senderMessage.appendChild(senderDM);
   }
