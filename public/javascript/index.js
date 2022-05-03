@@ -3,6 +3,8 @@ const logoutIcon = document.querySelector('#logout-icon');
 const homeFeedIcon = document.querySelector('#home-feed-icon');
 const messageIcon = document.querySelector('#message-icon');
 
+
+
 async function logout () {
     const response = await fetch('/api/users/logout', {
         method: 'post',
@@ -18,7 +20,7 @@ async function logout () {
 }
 
 async function message () {
-    window.location.assign('http://localhost:3009/conversation/1')
+    window.location.assign(`http://localhost:3009/conversation/`)
 }
 
 messageIcon.addEventListener('click', message);
