@@ -54,10 +54,13 @@ router.get('/:recipient_id/:sender_id', (req, res) => {
   })
     .then((dbMessageData) => {
       const users = dbMessageData.map((item) => {
+        // return sender and recip id
         return {
           username: item.user.username,
           profile_picture: item.user.profile_picture,
           message_content: item.message_content,
+          senderId: item.sender_id,
+          recipientId: item.recipient_id,
         };
       });
       res.json(users);
