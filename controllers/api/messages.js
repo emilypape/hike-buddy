@@ -59,11 +59,7 @@ router.get('/:recipient_id/:sender_id', (req, res) => {
           username: item.user.username,
           profile_picture: item.user.profile_picture,
           message_content: item.message_content,
-<<<<<<< HEAD
-          sender_id: item.sender_id,
-=======
           senderId: item.sender_id,
->>>>>>> feature/messages
           recipientId: item.recipient_id,
         };
       });
