@@ -162,8 +162,11 @@
   
 }
 /* signup.handlebars styles end */
+.name {
+  margin-left: -.5em;
+}
+/* profile start
 
-/* profile start */
 #profile-header {
   display: flex;
   justify-content: center;
@@ -218,4 +221,4 @@
   border: 0.1vw solid white;
   
   border-radius: 2vw;
-}
+} */
