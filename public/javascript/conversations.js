@@ -6,6 +6,7 @@ const messageInput = document.querySelector('#message-bar');
 const sendBtn = document.querySelector('#send-btn');
 let userMessageId;
 let messagePartnerId;
+let roomName;
 
 const socket = io.connect();
 
@@ -19,12 +20,13 @@ socket.on('broadcast-message', (message) => {
     'DM',
     'px-4',
     'py-2',
-    'bg-blue-500',
     'text-white',
     'text-sm',
     'font-medium',
-    'rounded-full',
+    'rounded-md',
     'mt-5',
+    'bg-green-500',
+    'ml-60',
   );
 
   senderMessage.appendChild(socketMessage);
@@ -38,6 +40,10 @@ async function fetchMessages(event) {
   messagePartnerId = senderId;
   const userId = this.getAttribute('recipientId');
   userMessageId = userId;
+  roomName = [userId, senderId].sort().join();
+
+  socket.emit('create', roomName);
+
   const response = await fetch(`http://localhost:3009/api/messages/${userId}/${senderId}`, {
     method: 'get',
   });
@@ -106,6 +112,7 @@ async function sendMessage() {
     });
 
     socket.emit('new-message', payload);
+    // socket.to(roomName).emit('new-message', payload);
 
     if (response.ok) {
       messageInput.value = '';

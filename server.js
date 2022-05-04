@@ -74,6 +74,9 @@ sequelize.sync({ force: false }).then(() => {
 
 io.on('connection', (socket) => {
   console.log('New socket connected!!!');
+  socket.on('create', (room) => {
+    socket.join(room);
+  });
 
   socket.on('welcome-message', (data) => {
     console.log('Data Socket: ', data);
