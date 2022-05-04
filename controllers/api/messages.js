@@ -75,13 +75,17 @@ router.get('/:recipient_id/:sender_id', (req, res) => {
 router.post('/send', (req, res) => {
   const io = req.app.get('socketio');
   const payload = req.body;
+  const roomName = [payload.sender_id, payload.recipient_id].sort().join();
 
   Message.create({
     message_content: payload.message_content,
     sender_id: payload.sender_id,
     recipient_id: payload.recipient_id,
   })
-    .then((dbMessageData) => res.json(dbMessageData))
+    .then((dbMessageData) => {
+      res.json(dbMessageData);
+      io.to(roomName).emit('new-message', payload);
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
