@@ -162,55 +162,10 @@
   
 }
 /* signup.handlebars styles end */
+
+/* profile start */
 .name {
   margin-left: -.5em;
-}
-/* profile start
-
-#profile-header {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 5vh;
-  padding: 2vw;
-  font-size: 3vw;
-  border-radius: 1vw;
-  background-color: white;
-  color: black;
-  width: 75%;
-}
-
-#profile-holder {
-  display: flex;
-  justify-content: center;
-}
-
-#preferences {
-  justify-content: center;
-  width: 40%;
-  background-color: white;
-  border: 0.1vw solid black;
-  border-radius: 1vw;
-}
-.profile-preferences {
-  padding: 1vw;
-  margin: 1vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  color: black;
-}
-
-#about {
-  display: flex;
-  justify-content: center;
-  width: auto;
-  background-color: white;
-  border: 0.1vw solid black;
-  border-radius: 1vw;
-  color: black;
-  height: auto;
-  padding: 2vw;
 }
 
 /* profile picture avatar formatting */
