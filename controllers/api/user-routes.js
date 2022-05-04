@@ -62,6 +62,19 @@ router.post('/logout', (req, res) => {
     }
 });
 
+// Get all users
+router.get('/', (req, res) => {
+    User.findAll({
+        attributes: { exclude: ['password'] },
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+    
+})
+
 // GET /api/users/id
 router.get('/:id', (req, res) => {
     User.findOne({
