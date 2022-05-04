@@ -38,6 +38,8 @@ function geoLocation(event) {
 // event listener to run function
 document.querySelector('#find-me').addEventListener('click', geoLocation)
 
+
+
 // function to handle survey page
 async function surveyHandler(event) {
  event.preventDefault()
@@ -59,7 +61,7 @@ const location = document.querySelector('#location-name').value
   const response = await fetch('/api/preferences', {
    method: 'POST',
    body: JSON.stringify({
-    // user_id: req.session.user_id,
+    // req cannot be used user_id: req.session.user.id,
     location_name: location,
     gender_identification: gender,
     gender_preference: genderPreference,

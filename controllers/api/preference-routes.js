@@ -7,7 +7,7 @@ const { Model, DataTypes } = require('sequelize');
 router.post('/', (req, res) => {
     console.log(req)
     Preferences.create({
-        // user_id = req.session.user_id,
+        user_id: req.session.user_id,
         location_name: req.body.location_name,
         gender_identification: req.body.gender_identification,
         gender_preference: req.body.gender_preference,
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
         water_feature: req.body.water_feature,
         mountain_peak: req.body.mountain_peak,
         special_equipment: req.body.special_equipment,
-        // biography: req.body.biography
+        biography: req.body.biography
     })
         .then(dbPreferencesData => {
             req.session.save(() => {
