@@ -66,7 +66,7 @@ router.post('/logout', (req, res) => {
 router.get('/:id', (req, res) => {
     User.findOne({
         where: {
-            id: req.params.id
+            id: req.session.id
         },
         attributes: [
         'first_name',
