@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
         hashed_password: req.body.hashed_password
     }).then(dbUserData => {
         req.session.save(() => {
-            req.session.id = dbUserData.id;
+            req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
             res.json(dbUserData);
@@ -23,21 +23,21 @@ router.post('/', (req, res) => {
 });
 
 //login route for the user
-router.post('/login', (req,res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
-            email: req.body.email
+            username: req.body.username
         }
     }).then(dbUserData => {
-        if(!dbUserData) {
-            res.status(400).json({ message: 'There is no current user with this email address.'});
+        if (!dbUserData) {
+            res.status(400).json({ message: 'There is no current user with this username.' });
             return;
         }
 
         //verify user
         const validPassword = dbUserData.checkPassword(req.body.hashed_password);
-        if(!validpassword) {
-            res.status(400).json({message: 'Invalid Password!'});
+        if (!validPassword) {
+            res.status(400).json({ message: 'Invalid Password!' });
             return;
         }
         req.session.save(() => {
@@ -45,7 +45,7 @@ router.post('/login', (req,res) => {
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
 
-            res.json({user:dbUserData, message: 'Welcome to Hike Buddy!'});
+            res.json({ user: dbUserData, message: 'Welcome to Hike Buddy!' });
         })
     });
 });
@@ -53,20 +53,33 @@ router.post('/login', (req,res) => {
 //logout route for the user
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
     }
     else {
-      res.status(404).end();
+        res.status(404).end();
     }
-  });
+});
+
+// Get all users
+router.get('/', (req, res) => {
+    User.findAll({
+        attributes: { exclude: ['password'] },
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+    
+})
 
 // GET /api/users/id
 router.get('/:id', (req, res) => {
     User.findOne({
         where: {
-            id: req.session.id
+            id: req.params.id
         },
         attributes: [
         'first_name',

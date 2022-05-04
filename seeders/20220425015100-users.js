@@ -41,7 +41,7 @@ module.exports = {
       id: 4,
       first_name: 'Noah',
       last_name: 'Slusher',
-      profile_picture:'https://pbs.twimg.com/media/FQi3QhyaIAAhj6Q.jpg',
+      profile_picture:'IMG_5006.jpg',
       username: 'noahslusher',
       email: 'nslusher@gmail.com',
       hashed_password: bcrypt.hashSync('slushy74', 10),
