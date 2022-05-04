@@ -1,9 +1,10 @@
 <section>
-
-    <header>
+    <div id="profile-header">
+    <header >
       <h1>{{user.first_name}} {{user.last_name}}</h1>
     </header>
-
+    </div>
+  <div id="profile-holder">
     <div id="profile-picture">
      <img src="/uploads/{{user.profile_picture}}" alt="Image of {{user.first_name}} {{user.last_name}}" class="avatar">
     </div>
@@ -20,12 +21,12 @@
       <div class="profile-preferences"  id="peaks">Likes to summit peaks: {{user.preference.mountain_peak}}</div>
       <div class="profile-preferences"  id="equipment">Carries special hiking equipment: {{user.preference.special_equipment}}</div>
 
-     
     </div>
-    <div id="about">
+  </div>
+    <div id="about"> 
      About section
     </div>
-
+  
 </section> 
 
 <script src="/javascript/profile.js"></script>

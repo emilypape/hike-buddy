@@ -3,13 +3,29 @@
 @tailwind utilities;
 
 /* Survey.handlebars styles start */
-#survey {
- border: 0.1vw solid black;
+#survey-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+#survey {
+ border: 0.1vw solid white;
+ background-color: #025c8f;
+}
+#survey-header {
+  text-align: center;
+  border-radius: 0.2vw;
+  width: 40%;
+  font-size: 1.4vw;
+  border: 0.1vw solid white;
+  border-radius: 1vw;
+}
 .dropdown{
- padding: 1vw;
- border-radius: 1vw;
+ padding: 0.6vw;
+ border-radius: 0.7vw;
+ background-color: white;
+ color: black;
 }
 
 .dropdown:hover{
@@ -21,6 +37,16 @@
   color: black;
   padding: 1vw;
   height: 2vh;
+}
+
+.survey-btn {
+  background-color: #10d2f2;
+  color: black;
+}
+
+.survey-btn:hover {
+  cursor: pointer;
+  background-color: #10aaf2;
 }
 /* survey.handlebars styles end */
 
@@ -41,27 +67,27 @@
 }
 
 .header h1 {
- color: white;
+ color: #2B0600;
  font-size: 8vw;
- text-shadow: -0.14vw 0.14vw 0 black,
-   0.14vw 0.14vw 0 black,
-  0.14vw -0.14vw 0 black,
-  -0.14vw -0.14vw 0 black;
+ text-shadow: -0.14vw 0.14vw 0 bisque,
+   0.14vw 0.14vw 0 bisque,
+  0.14vw -0.14vw 0 bisque,
+  -0.14vw -0.14vw 0 bisque;
  margin-bottom: 4vh;
 }
 
 .header h3 {
- color: white;
+ color: #2B0600;
  font-size: 3vw;
- text-shadow: -0.09vw 0.09vw 0 black,
- 0.09vw 0.09vw 0 black,
-0.09vw -0.09vw 0 black,
--0.09vw -0.09vw 0 black;
+ text-shadow: -0.05vw 0.05vw 0 bisque,
+ 0.05vw 0.05vw 0 bisque,
+0.05vw -0.05vw 0 bisque,
+-0.05vw -0.05vw 0 bisque;
 }
 
-#intro {
+/* #intro {
  border-bottom: 0.2vw solid black;
-}
+} */
 
 .btn {
  width: 35vw;
@@ -69,7 +95,8 @@
  border-radius: 1vw;
  box-shadow: 0 0 1vw white;
  border: 0.2vw solid white;
- background-color: rgba(5, 166, 2, 0.4);
+ background-color: #373100;
+ opacity: .70;
  color: white;
  font-size: 2vw;
  text-shadow: -0.05vw 0.05vw 0 black,
@@ -79,12 +106,16 @@
 }
 
 #login-btn {
-  font-size: 2.4vw;
+  font-size: 2vw;
 }
 
 .btn:hover {
- background-color: rgba(5, 184, 1, 0.8);
- cursor: pointer
+ background-color: #6D6D24;
+ cursor: pointer;
+}
+
+.textDecoration {
+  text-decoration: none;
 }
 /* homepage.handlebars styles end */
 
@@ -122,8 +153,9 @@
   color: black;
 }
 
-#signup-btn {
+.signup-btn {
   margin-top: 5vh;
+  margin-bottom: 10vh;
   display: flex;
   justify-content: center;
   font-size: 2.5vw;
@@ -131,11 +163,59 @@
 }
 /* signup.handlebars styles end */
 
+/* profile start */
+#profile-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 5vh;
+  padding: 2vw;
+  font-size: 3vw;
+  border-radius: 1vw;
+  background-color: white;
+  color: black;
+  width: 75%;
+}
+
+#profile-holder {
+  display: flex;
+  justify-content: center;
+}
+
+#preferences {
+  justify-content: center;
+  width: 40%;
+  background-color: white;
+  border: 0.1vw solid black;
+  border-radius: 1vw;
+}
+.profile-preferences {
+  padding: 1vw;
+  margin: 1vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+}
+
+#about {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  background-color: white;
+  border: 0.1vw solid black;
+  border-radius: 1vw;
+  color: black;
+  height: auto;
+  padding: 2vw;
+}
+
 /* profile picture avatar formatting */
 .avatar {
   vertical-align: middle;
-  width: 200px;
-  height: 250px;
-  border-radius: 50%;
-  border-color: black;
+  width: 20vw;
+  height: 20vw;
+  border: 0.1vw solid white;
+  
+  border-radius: 2vw;
 }

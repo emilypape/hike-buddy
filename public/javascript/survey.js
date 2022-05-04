@@ -61,7 +61,6 @@ const location = document.querySelector('#location-name').value
   const response = await fetch('/api/preferences', {
    method: 'POST',
    body: JSON.stringify({
-    // req cannot be used user_id: req.session.user.id,
     location_name: location,
     gender_identification: gender,
     gender_preference: genderPreference,
@@ -77,8 +76,9 @@ const location = document.querySelector('#location-name').value
    headers: { 'Content-Type': 'application/json'}
   })
   if (response.ok) {
-   console.log(gender)
+   console.log("success")
    //document.location.replace(`/users/${user_id}`)
+   window.location.href=`/profile`
   }
   else {
    alert(response.statusText)
