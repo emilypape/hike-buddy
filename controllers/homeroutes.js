@@ -165,38 +165,11 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
 })
 
 // Render feed
-router.get('/feed'), (req, res) => {
-    // User.findAll({
-    //     where: {
-    //         id: req.params.id
-    //     },
-    //     attributes: [
-    //         'first_name',
-    //         'last_name',
-    //         'profile_picture',
-    //         'username'
-    //     ],
-    //     attributes: { exclude: ['email', 'hashed_password'] },
-    // })
-    // .then(dbUserData => {
-    //     if (!dbUserData) {
-    //         // redirect user to 404 error page
-    //         res.redirect('/404error')
-    //         return;
-    //     }
-    //     // serialize the data
-    //     const user = dbUserData.get({ plain: true })
-    //     // pass to handlebars template
-    //     res.render('feed', {
-    //         user
-    //         // loggedIn: req.session.loggedIn,
-    //     })
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    //     res.status(500).json(err)
-    // })
+router.get('/feed', (req, res) => {
+    const users = User.findAll();
+// console.log(users.every(user => user instanceof User)); // true
+// console.log("All users:", JSON.stringify(users, null, 2));
     res.render('feed');
-}
+})
 
 module.exports = router;
