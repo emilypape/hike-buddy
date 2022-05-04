@@ -10,7 +10,7 @@ let roomName;
 
 const socket = io.connect();
 
-socket.on('broadcast-message', (message) => {
+socket.on('new-message', (message) => {
   // TODO: Display or append them to the page
   console.log('Message back from Socket: ', message);
   // TODO: append message payload as a child in message box
@@ -111,8 +111,8 @@ async function sendMessage() {
       },
     });
 
-    socket.emit('new-message', payload);
-    // socket.to(roomName).emit('new-message', payload);
+    // socket.emit('new-message', payload);
+    // console.log(socket);
 
     if (response.ok) {
       messageInput.value = '';
