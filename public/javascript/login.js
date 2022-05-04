@@ -16,7 +16,7 @@ async function login() {
     if (response.ok) {
       console.log('success')
       // Need to route user to dashboard after logging in
-      //window.location.href = `/dashboard}`
+      //window.location.href = `/feed`
     } else {
       alert(response.statusText);
     }
