@@ -15,8 +15,10 @@ socket.on('new-message', (message) => {
   console.log('Message back from Socket: ', message);
   // TODO: append message payload as a child in message box
   let socketMessage = document.createElement('div');
+
   socketMessage.textContent = message.message_content;
   socketMessage.classList.add(
+    'w-2/4',
     'DM',
     'px-4',
     'py-2',
@@ -25,9 +27,12 @@ socket.on('new-message', (message) => {
     'font-medium',
     'rounded-md',
     'mt-5',
-    'bg-green-500',
-    'ml-60',
   );
+  if (message.sender_id == userMessageId) {
+    socketMessage.classList.add('bg-green-500', 'ml-60');
+  } else {
+    socketMessage.classList.add('bg-blue-500');
+  }
 
   senderMessage.appendChild(socketMessage);
 });
