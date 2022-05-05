@@ -12,7 +12,7 @@
                                 <div class=" px-6 flex-col rounded-full">
                                     <img id="prof-pic" class="p-1 story-ring flex justify-center items-center
                                 bg-gradient-to-tl from-yellow-200 to-orange-500 
-                                rounded-full w-20 h-20 rounded-full border border-gray-100 shadow-sm" src="{{user.profile_picture}}" alt="user image" />
+                                rounded-full w-20 h-20 rounded-full border border-gray-100 shadow-sm" src="/uploads/{{user.profile_picture}}" alt="user image" />
                                     <button senderId={{user.sender_id}} recipientId={{recipient_id}} id="fetch-messages" class="px-1 space-y-1 font-medium text-black hover:cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">{{user.username}}</button>                                
                                 </div>
                                 {{/each}}
