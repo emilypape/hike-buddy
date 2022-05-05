@@ -39,7 +39,12 @@ async function homePage() {
   window.location.assign('/');
 }
 
+async function feedPage() {
+  window.location.assign('/feed');
+}
+
 messageIcon.addEventListener('click', message);
 logoutIcon.addEventListener('click', logout);
 profileIcon.addEventListener('click', profile);
 titlePageIcon.addEventListener('click', homePage);
+homeFeedIcon.addEventListener('click', feedPage);
