@@ -8,13 +8,15 @@ async function login() {
       method: 'post',
       body: JSON.stringify({
         username: usernameInput.value,
-        hashed_password: passwordInput.value
+        hashed_password: passwordInput.value,
       }),
-      headers: { 'Content-Type': 'application/json' }
-    })
+      headers: { 'Content-Type': 'application/json' },
+    });
     // check response status
     if (response.ok) {
-      console.log('success')
+      console.log('success');
+      usernameInput.value = '';
+      passwordInput.value = '';
       // Need to route user to dashboard after logging in
       //window.location.href = `/feed`
     } else {
@@ -23,15 +25,15 @@ async function login() {
   }
 }
 
-const signupBtn = document.querySelector('#signup-btn')
+const signupBtn = document.querySelector('#signup-btn');
 
 async function signupHandler(event) {
-  event.preventDefault()
+  event.preventDefault();
 
   const response = await fetch('/signup', {
     method: 'get',
-  })
-  window.location.href = response.url
+  });
+  window.location.href = response.url;
 
   // check response status
   if (response.ok) {
@@ -39,8 +41,7 @@ async function signupHandler(event) {
   } else {
     alert(response.statusText);
   }
-
 }
 
 loginButton.addEventListener('click', login);
-signupBtn.addEventListener('click', signupHandler)
+signupBtn.addEventListener('click', signupHandler);
