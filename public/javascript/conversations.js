@@ -49,7 +49,7 @@ async function fetchMessages(event) {
 
   socket.emit('create', roomName);
 
-  const response = await fetch(`http://localhost:3009/api/messages/${userId}/${senderId}`, {
+  const response = await fetch(`https://still-shore-87425.herokuapp.com/api/messages/${userId}/${senderId}`, {
     method: 'get',
   });
   const data = await response.json();
@@ -107,7 +107,7 @@ async function sendMessage() {
       recipient_id: recipientId,
     };
 
-    const response = await fetch('http://localhost:3009/api/messages/send', {
+    const response = await fetch('https://still-shore-87425.herokuapp.com/api/messages/send', {
       method: 'post',
       body: JSON.stringify(payload),
 
