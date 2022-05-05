@@ -168,10 +168,27 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
 
 // Render feed
 router.get('/feed', (req, res) => {
-    const users = User.findAll();
+    User.findAll({
+        attributes: [
+            'first_name',
+            'last_name'
+        ]
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.redirect('/404error')
+            return;
+        }
+        const user = dbUserData
+        res.render('feed', {
+            user
+        })
+        console.log(user.first_name)
+    })
+    
 // console.log(users.every(user => user instanceof User)); // true
 // console.log("All users:", JSON.stringify(users, null, 2));
-    res.render('feed');
+    //res.render('feed');
 })
 
 // render 404 error page 

@@ -1,15 +1,29 @@
 
 
+<section>
+    <div class="feed-card">
+        <div class="feed-profile-photo">
+            <img src="{{user.profile_picture}} alt={{user.first_name}} {{user.last_name}}'s profile picture">
+        </div>
+        <div class="feed-user">
+            <p>{{user.first_name}} {{user.last_name}}</p>
+        </div>
+    </div>
+</section>
+
+
+{{!-- 
+
 <div class="max-w-sm w-full lg:max-w-full lg:flex">
   <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
   </div>
   <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
     <div class="mb-8">
       <div class="text-gray-900 font-bold text-xl mb-2"><p class="text-gray-700 text-base">{{user.first_name}} {{user.last_name}}</p></div>
-      <p class="text-gray-700 text-base">Prefers hikes of a {{user.preference.hike_distance}} distance</p>
+      <p class="text-gray-700 text-base">Prefers hikes of a {{user.first_name}} distance</p>
     </div>
     <div class="flex items-center">
-      <img class="w-10 h-10 rounded-full mr-4" src="/images/{{user.profile_picture}} alt={{user.first_name}} {{user.last_name}}'s profile picture">
+      <img class="w-10 h-10 rounded-full mr-4" src="{{user.profile_picture}} alt={{user.first_name}} {{user.last_name}}'s profile picture">
     {{!-- <button type="button" class="collapsible">Preferences</button>
 <div class="content">
   <p>Lorem ipsum...</p>
@@ -37,10 +51,10 @@ for (i = 0; i < coll.length; i++) {
   </div>
 </div>
 
-<script> src="/javascript/feed.js"</script>
+<script> src="/javascript/feed.js"</script> --}}
 
-{{!-- <div class="feed">
+<div id="feed">
     {{#each this}}
     {{> profile-partial}}
     {{/each}}
-</div> --}}
+</div>
