@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 })
 
 // renders signup portal
-router.get('/signup', (req,res) => {
+router.get('/signup', (req, res) => {
     res.render('signup')
 })
 
@@ -67,9 +67,9 @@ router.get('/survey', async (req, res) => {
     if (req.session.user_id) {
         const user = await User.findByPk(req.session.user_id)
         console.log(user);
-        const newUser = user.get({plain:true});
+        const newUser = user.get({ plain: true });
         console.log(newUser);
-        res.render('survey', {picture: newUser.profile_picture})
+        res.render('survey', { picture: newUser.profile_picture })
     }
     else {
         res.render('login')
@@ -166,13 +166,13 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
         })
 })
 
-// Render feed
-router.get('/feed', (req, res) => {
-    const users = User.findAll();
-// console.log(users.every(user => user instanceof User)); // true
-// console.log("All users:", JSON.stringify(users, null, 2));
-    res.render('feed');
-})
+// // Render feed
+// router.get('/feed', (req, res) => {
+//     const users = User.findAll();
+//     // console.log(users.every(user => user instanceof User)); // true
+//     // console.log("All users:", JSON.stringify(users, null, 2));
+//     res.render('feed');
+// })
 
 // render 404 error page 
 router.get('/404error', (req, res) => {
@@ -184,9 +184,9 @@ router.get('/survey', async (req, res) => {
     if (req.session.user_id) {
         const user = await User.findByPk(req.session.user_id)
         console.log(user);
-        const newUser = user.get({plain:true});
+        const newUser = user.get({ plain: true });
         console.log(newUser);
-        res.render('survey', {picture: newUser.profile_picture})
+        res.render('survey', { picture: newUser.profile_picture })
     }
     else {
         res.render('login')
@@ -282,5 +282,36 @@ router.get('/conversation/:recipient_id/:sender_id', (req, res) => {
             res.status(500).json(err);
         })
 })
+router.get('/feed', (req, res) => {
+    User.findAll({
+        attributes: [
+            'first_name',
+            'last_name',
+            'profile_picture',
+            'username',
+            'email'
+        ],
+        attributes: { exclude: ['hashed_password'] },
+        include: [
+            {
+                model: Preferences,
+                attributes: ['gender_identification', 'gender_preference', 'hike_distance', 'hike_pace', 'hike_with_pet', 'hike_climate', 'hike_in_snow', 'water_feature', 'mountain_peak', 'special_equipment']
+            }
+        ],
+    })
+        .then(dbUserData => {
+            const users = dbUserData.map(users => users.get({ plain: true }));
+            // pass a single post object into the homepage template
+
+            res.render('feed', {
+                users,
+                loggedIn: req.session.loggedIn,
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
