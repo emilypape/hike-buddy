@@ -15,6 +15,7 @@ router.post('/', (req, res) => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
+        req.session.profile_picture = dbUserData.profile_picture;
         res.json(dbUserData);
       });
     })
