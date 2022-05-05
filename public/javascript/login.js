@@ -18,7 +18,7 @@ async function login() {
       usernameInput.value = '';
       passwordInput.value = '';
       // Need to route user to dashboard after logging in
-      //window.location.href = `/feed`
+      window.location.href = `/feed`
     } else {
       alert(response.statusText);
     }
