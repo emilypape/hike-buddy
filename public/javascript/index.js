@@ -43,6 +43,15 @@ async function feedPage() {
   window.location.assign('/feed');
 }
 
+async function profilePic() {
+  const loggedInUser = await getLoggedInUser();
+
+  const navProfilePic = document.createElement('img');
+  navProfilePic.src = `${loggedInUser.profile_picture}`;
+  navProfilePic.classList.add('w-10', 'h-10', 'rounded-full');
+  profileIcon.appendChild(navProfilePic);
+}
+
 messageIcon.addEventListener('click', message);
 logoutIcon.addEventListener('click', logout);
 profileIcon.addEventListener('click', profile);

@@ -1,4 +1,5 @@
 const newConversationBtn = document.querySelectorAll('#feed-message-btn');
+const modalMessageBtn = document.querySelector('#modal-message-btn');
 
 async function getLoggedInUser() {
   const response = await fetch('http://localhost:3009/api/users/who-am-i');
@@ -24,4 +25,17 @@ async function startConversation() {
   });
 }
 
+async function getLoggedInUser() {
+  const response = await fetch('http://localhost:3009/api/users/who-am-i');
+  const userData = await response.json();
+  return userData;
+}
+
+async function message() {
+  const loggedInUser = await getLoggedInUser();
+  const loggedInUserId = loggedInUser.user_id;
+  window.location.assign(`http://localhost:3009/conversation/${loggedInUserId}`);
+}
+
 newConversationBtn.forEach((newConversationBtn) => newConversationBtn.addEventListener('click', startConversation));
+modalMessageBtn.addEventListener('click', message);
