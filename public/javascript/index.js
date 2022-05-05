@@ -3,6 +3,7 @@ const homeFeedIcon = document.querySelector('#home-feed-icon');
 const messageIcon = document.querySelector('#message-icon');
 const profileIcon = document.querySelector('#navbar-profile-pic');
 const titlePageIcon = document.querySelector('#app-title');
+const profilePicture = document.querySelector('#navbar-profile-pic img');
 
 async function logout() {
   const response = await fetch('/api/users/logout', {
@@ -45,11 +46,8 @@ async function feedPage() {
 
 async function profilePic() {
   const loggedInUser = await getLoggedInUser();
-
-  const navProfilePic = document.createElement('img');
-  navProfilePic.src = `${loggedInUser.profile_picture}`;
-  navProfilePic.classList.add('w-10', 'h-10', 'rounded-full');
-  profileIcon.appendChild(navProfilePic);
+  const profilePictureSrc = `/uploads/${loggedInUser.profile_picture}`;
+  profilePicture.src = profilePictureSrc;
 }
 
 messageIcon.addEventListener('click', message);
@@ -57,3 +55,5 @@ logoutIcon.addEventListener('click', logout);
 profileIcon.addEventListener('click', profile);
 titlePageIcon.addEventListener('click', homePage);
 homeFeedIcon.addEventListener('click', feedPage);
+
+profilePic();
