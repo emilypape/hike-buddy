@@ -3,7 +3,7 @@
 <section>
     <div class="items-center w-full max-w-md px-7 py-16 mx-auto bg-white rounded-2xl shadow-xl">
         <div class="feed-profile-photo">
-            <img class="px-2 pl-2 justify-center" src="/uploads/{{user.profile_picture}} alt={{user.first_name}} {{user.last_name}}'s profile picture">
+            <img class="px-2 pl-2 justify-center" src="/uploads/{{user.profile_picture}} alt={{first_name}} {{last_name}}'s profile picture">
         </div>
         <div class="feed-user">
             <p class="text-2xl ml-16 font-medium text-black">{{user.first_name}} {{user.last_name}} This is a test</p>
@@ -16,7 +16,7 @@
 
 
 </section>
-
+<script src="/javascript/feed.js"></script>
 
 {{!-- 
 
@@ -54,7 +54,7 @@ for (i = 0; i < coll.length; i++) {
   </div>
 </div>
 
-<script> src="/javascript/feed.js"</script> --}}
+<script src="/javascript/feed.js"></script> --}}
 
 {{!-- <div id="feed">
     {{#each this}}
