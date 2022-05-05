@@ -78,7 +78,7 @@ const location = document.querySelector('#location-name').value
   if (response.ok) {
    console.log("success")
    //document.location.replace(`/users/${user_id}`)
-   window.location.href=`/profile`
+   window.location.href=`/login`
   }
   else {
    alert(response.statusText)

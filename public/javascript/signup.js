@@ -1,35 +1,37 @@
+const firstName = document.querySelector('#first-name-signup');
+const lastName = document.querySelector('#last-name-signup');
+const email = document.querySelector('#email-signup');
+const username = document.querySelector('#username');
+const password = document.querySelector('#password-signup');
+const signupBtn = document.querySelector('#signup-btn');
+
 async function signupFormHandler(event) {
     event.preventDefault();
   
-    const firstName = document.querySelector('#first-name-signup').value.trim();
-    const lastName = document.querySelector('#last-name-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const username = document.querySelector('#username').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-  
-    if (firstName && lastName && email && username && password) {
+    // if (firstName && lastName && email && username && password) {
       const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
-          username: username,
-          email: email,
-          hashed_password: password
+          first_name: firstName.value,
+          last_name: lastName.value,
+          username: username.value,
+          email: email.value,
+          hashed_password: password.value
         }),
         headers: { 'Content-Type': 'application/json' }
       });
-  
       // check the response status
       if (response.ok) {
         console.log('success');
-        window.location.href = '/login';
-        // document.location.replace('/');??
+
+
+        window.location.href = '/survey';
+        
 
       } else {
         alert(response.statusText);
       }
-    }
+    // }
   };
 
-  document.getElementById('#signup-btn').addEventListener('submit', signupFormHandler)
+signupBtn.addEventListener('click', signupFormHandler)
