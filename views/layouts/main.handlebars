@@ -15,10 +15,13 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css' />
   </head>
   <body class='dark:bg-slate-900 dark:text-white'>
+    {{#if loggedIn}}
     <nav class='bg-slate-900 text-white p-5'>
       <div class='flex items-center flex-no-shrink text-white mr-6'>
         <button id='app-title' class='font-semibold text-xl tracking-tight'>Hike Buddy</button>
+    
         <div class='text-sm lg:flex-grow'></div>
+        
         <svg id='logout-icon' class='h-8 w-8 mr-5 text-white' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
           <path
             stroke-linecap='round'
@@ -63,6 +66,7 @@
         />
       </div>
     </nav>
+    {{/if}}
     <main>
       {{{body}}}
     </main>
