@@ -1,0 +1,60 @@
+<div class='bg-grey-lighter min-h-screen flex flex-col'>
+  <div class='container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2'>
+    <div class='bg-white px-6 py-8 rounded shadow-md text-black w-full'>
+      <input
+        id='first-name-signup'
+        type='text'
+        class='block border border-grey-light w-full p-3 rounded mb-4'
+        name='firstName'
+        placeholder='First Name'
+      />
+
+      <input
+        id="last-name-signup"
+        type='text'
+        class='block border border-grey-light w-full p-3 rounded mb-4'
+        name='lastName'
+        placeholder='Last Name'
+      />
+
+    <input
+        id="username"
+        type='text'
+        class='block border border-grey-light w-full p-3 rounded mb-4'
+        name='userName'
+        placeholder='Username'
+      />
+
+      <input
+        id="email-signup"
+        type='text'
+        class='block border border-grey-light w-full p-3 rounded mb-4'
+        name='email'
+        placeholder='Email'
+      />
+
+      <input
+        id="password-signup"
+        type='password'
+        class='block border border-grey-light w-full p-3 rounded mb-4'
+        name='password'
+        placeholder='Password'
+      />
+
+      <button
+        id="signup-btn"
+        type='submit'
+        class='w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-dark focus:outline-none my-1'
+      >Create Account</button>
+
+      <div class='text-center text-sm text-grey-dark mt-4'>
+        Already Have an Account?
+        <a class='no-underline border-b border-grey-dark text-grey-dark' href='/login'>
+          Login
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src='/javascript/signup.js'></script>

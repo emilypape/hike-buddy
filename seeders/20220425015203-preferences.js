@@ -15,6 +15,7 @@ module.exports = {
         water_feature: true,
         mountain_peak: true,
         special_equipment: false,
+        biography: 'test',
       },
       {
         id: 2,
@@ -29,6 +30,7 @@ module.exports = {
         water_feature: false,
         mountain_peak: true,
         special_equipment: true,
+        biography: 'test',
       },
       {
         id: 3,
@@ -43,6 +45,7 @@ module.exports = {
         water_feature: true,
         mountain_peak: false,
         special_equipment: false,
+        biography: 'test',
       },
       {
         id: 4,
@@ -57,6 +60,7 @@ module.exports = {
         water_feature: false,
         mountain_peak: true,
         special_equipment: true,
+        biography: 'test',
       }
     ]);
   },

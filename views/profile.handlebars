@@ -1,0 +1,65 @@
+<section class='flex justify-center my-10 mx-48'>
+  <div id='profile-holder' class='justify-center'>
+    <div id='profile-picture'>
+      <div class='flex justify-center mr-5 mb-5'>
+        <img
+          class='object-cover w-60 h-60 rounded-full'
+          src="/uploads/{{user.profile_picture}}" alt="Image of {{user.first_name}} {{user.last_name}}"
+        />
+      </div>
+      <h1 class='name text-center text-6xl'>{{user.first_name}} {{user.last_name}}</h1>
+
+    </div>
+
+    <div class='flex flex-wrap justify-center mt-10 mb-32 mx-35' id='preferences'>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='gender'
+      >Gender: {{user.preference.gender_identification}}</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='gender-preference'
+      >Prefers hiking with:
+        {{user.preference.gender_preference}}</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='distance'
+      >Prefers hikes of a {{user.preference.hike_distance}} distance</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='pace'
+      >Likes to hike at a {{user.preference.hike_pace}} pace</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='pet-preference'
+      >Likes to hike with a pet:
+        {{user.preference.hike_with_pet}}</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='climate'
+      >Prefers {{user.preference.hike_climate}} climates</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='snow'
+      >Will hike in snow: {{user.preference.hike_in_snow}}</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='water-features'
+      >Likes to hike to water features:
+        {{user.preference.water_feature}}</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='peaks'
+      >Likes to summit peaks: {{user.preference.mountain_peak}}</div>
+      <div
+        class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+        id='equipment'
+      >Carries special hiking equipment:
+        {{user.preference.special_equipment}}</div>
+
+    </div>
+  </div>
+
+</section>
+
+<script src="/javascript/profile.js"></script>

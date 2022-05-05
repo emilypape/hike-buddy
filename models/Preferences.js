@@ -19,6 +19,10 @@ Preferences.init(
                 key: 'id'
             }
         },
+        location_name: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         gender_identification: {
             type: DataTypes.STRING,
             allowNull: false
@@ -58,7 +62,12 @@ Preferences.init(
         special_equipment: {
             type: DataTypes.BOOLEAN,
             allowNull: false
+        },
+        biography: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
+        
     },
     {
         sequelize,

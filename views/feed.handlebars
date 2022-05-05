@@ -1,0 +1,125 @@
+<ol>
+
+  {{#each users as |user|}}
+    <li>
+      <section
+        class='flex justify-center align-center my-4 mx-auto w-full max-w-5xl px-7 py-4 bg-slate-800 rounded-xl shadow-xl mb-16'
+      >
+        <div id='profile-holder' class='justify-center'>
+          <div id='profile-picture'>
+            <div class='flex float-left align-center mr-5 my-5'>
+              <img
+                class='object-cover w-60 h-60 rounded-full'
+                src='/uploads/{{user.profile_picture}}'
+                alt='Image of {{user.first_name}} {{user.last_name}}'
+              />
+            </div>
+            <h1 class='name text-center text-white text-6xl'>{{user.first_name}} {{user.last_name}}</h1>
+
+          </div>
+
+          <div class='flex flex-wrap justify-right mt-8 mb-8 mx-35' id='preferences'>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='gender'
+            >Gender: {{user.preference.gender_identification}}</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='gender-preference'
+            >Prefers hiking with:
+              {{user.preference.gender_preference}}</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='distance'
+            >Prefers hikes of a {{user.preference.hike_distance}} distance</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='pace'
+            >Likes to hike at a {{user.preference.hike_pace}} pace</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='pet-preference'
+            >Likes to hike with a pet:
+              {{user.preference.hike_with_pet}}</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='climate'
+            >Prefers {{user.preference.hike_climate}} climates</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='snow'
+            >Will hike in snow: {{user.preference.hike_in_snow}}</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='water-features'
+            >Likes to hike to water features:
+              {{user.preference.water_feature}}</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='peaks'
+            >Likes to summit peaks: {{user.preference.mountain_peak}}</div>
+            <div
+              class='profile-preferences text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600'
+              id='equipment'
+            >Carries special hiking equipment:
+              {{user.preference.special_equipment}}</div>
+
+          </div>
+          <button
+            data-bs-toggle='modal'
+            data-bs-target='#exampleModal'
+            recipientId={{user.id}}
+            id='feed-message-btn'
+            class='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg'
+          >
+            Let's be Hiking Buddies!
+          </button>
+        </div>
+
+      </section>
+
+    </li>
+  {{/each}}
+  <!-- Modal -->
+  <div
+    class='modal fade fixed top-52 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto'
+    id='exampleModal'
+    tabindex='-1'
+    aria-labelledby='exampleModalLabel'
+    aria-hidden='true'
+  >
+    <div class='modal-dialog relative w-auto pointer-events-none'>
+      <div
+        class='modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-slate-700 bg-clip-padding rounded-md outline-none text-current'
+      >
+        <div
+          class='modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md'
+        >
+          <h5 class='text-xl font-medium leading-normal text-white' id='exampleModalLabel'>New Hiking Buddy!</h5>
+          <button
+            type='button'
+            class='btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline'
+            data-bs-dismiss='modal'
+            aria-label='Close'
+          ></button>
+        </div>
+        <div class='modal-body relative p-4'>
+          Visit your messages to start planning your next adventure!
+        </div>
+        <div class='modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 rounded-b-md'>
+          <button
+            type='button'
+            class='px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out'
+            data-bs-dismiss='modal'
+          >Close</button>
+          <button
+            id='modal-message-btn'
+            type='button'
+            class='px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1'
+          >View Messages</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ol>
+<script defer src='/javascript/feed.js'></script>
