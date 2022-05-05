@@ -119,103 +119,69 @@
 }
 /* homepage.handlebars styles end */
 
-/* signup.handlebars styles start */
-#signup-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 4vw;
-}
 
-.input {
-  font-size: 3vw;
-  margin: 1vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.input-name {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.input-box {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border-radius: 0.5vw;
-  margin-left: 2vw;
-  border: 0.1vw solid black;
-  font-size: 3vw;
-  padding: 1.5vw;
-  color: black;
-}
-
-.signup-btn {
-  margin-top: 5vh;
-  margin-bottom: 10vh;
-  display: flex;
-  justify-content: center;
-  font-size: 2.5vw;
-  
-}
-/* signup.handlebars styles end */
 
 /* profile start */
-#profile-header {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 5vh;
-  padding: 2vw;
-  font-size: 3vw;
-  border-radius: 1vw;
-  background-color: white;
-  color: black;
-  width: 75%;
-}
-
-#profile-holder {
-  display: flex;
-  justify-content: center;
-}
-
-#preferences {
-  justify-content: center;
-  width: 40%;
-  background-color: white;
-  border: 0.1vw solid black;
-  border-radius: 1vw;
-}
-.profile-preferences {
-  padding: 1vw;
-  margin: 1vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  color: black;
-}
-
-#about {
-  display: flex;
-  justify-content: center;
-  width: auto;
-  background-color: white;
-  border: 0.1vw solid black;
-  border-radius: 1vw;
-  color: black;
-  height: auto;
-  padding: 2vw;
+.name {
+  margin-left: -.5em;
 }
 
 /* profile picture avatar formatting */
 .avatar {
   vertical-align: middle;
+  width: 200px;
+  height: 250px;
+  border-radius: 50%;
+  border-color: black;
+}
+
+/*Styling for feed*/
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.content {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
   width: 20vw;
   height: 20vw;
   border: 0.1vw solid white;
   
   border-radius: 2vw;
-}
+} */

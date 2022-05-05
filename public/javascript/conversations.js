@@ -6,26 +6,33 @@ const messageInput = document.querySelector('#message-bar');
 const sendBtn = document.querySelector('#send-btn');
 let userMessageId;
 let messagePartnerId;
+let roomName;
 
 const socket = io.connect();
 
-socket.on('broadcast-message', (message) => {
+socket.on('new-message', (message) => {
   // TODO: Display or append them to the page
   console.log('Message back from Socket: ', message);
   // TODO: append message payload as a child in message box
   let socketMessage = document.createElement('div');
+
   socketMessage.textContent = message.message_content;
   socketMessage.classList.add(
+    'w-2/4',
     'DM',
     'px-4',
     'py-2',
-    'bg-blue-500',
     'text-white',
     'text-sm',
     'font-medium',
-    'rounded-full',
+    'rounded-md',
     'mt-5',
   );
+  if (message.sender_id == userMessageId) {
+    socketMessage.classList.add('bg-green-500', 'ml-60');
+  } else {
+    socketMessage.classList.add('bg-blue-500');
+  }
 
   senderMessage.appendChild(socketMessage);
 });
@@ -38,6 +45,10 @@ async function fetchMessages(event) {
   messagePartnerId = senderId;
   const userId = this.getAttribute('recipientId');
   userMessageId = userId;
+  roomName = [userId, senderId].sort().join();
+
+  socket.emit('create', roomName);
+
   const response = await fetch(`http://localhost:3009/api/messages/${userId}/${senderId}`, {
     method: 'get',
   });
@@ -105,7 +116,8 @@ async function sendMessage() {
       },
     });
 
-    socket.emit('new-message', payload);
+    // socket.emit('new-message', payload);
+    // console.log(socket);
 
     if (response.ok) {
       messageInput.value = '';
